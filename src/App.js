@@ -1,11 +1,22 @@
 import logo from './logo.svg';
+import React, { useState } from 'react';
 import SearchSongs from './components/SearchSongs';
-import { useState } from 'react';
 import './App.css';
 import './components/css/SearchBar.css';
 
 function App() {
   const [song, setSong] = useState('')
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setSong(value);
+  };
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();   
+    const { value } = event.target;
+    setSong(value);
+    console.log(value);
+  };
 
   return (
     <div className="App">
@@ -15,7 +26,7 @@ function App() {
       </header> 
       <div>
         <p>Gsgag</p>
-        <SearchSongs />
+        <SearchSongs searchValue={song} onSearchChange={handleChange}/>
       </div>
     </div>
   );

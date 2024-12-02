@@ -1,23 +1,17 @@
 import React, { useState } from 'react';
 
 
-function SearchBar() {
-  const [song, setSong] = useState('')
-
-  const handleChange = ({target: {value}}) => {
-    setSong(value);
-    console.log(value);
-  }
+function SearchBar({ value, onChange }) {
 
   return (
     <form className='SearchBar-container'>
       <input 
       className="SearchBar"
-      type='text' 
+      type='text'
       id='searchBar' 
       name='searchBar' 
-      value={song} 
-      onChange={handleChange} 
+      value={value} 
+      onChange={onChange} 
       placeholder='Search for songs...' 
       />
     </form>

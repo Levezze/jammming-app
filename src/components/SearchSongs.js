@@ -3,10 +3,10 @@ import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import './css/SearchSongs.css'
 
-function SearchSongs() {
+function SearchSongs({ searchValue, onSearchChange }) {
   return (
     <div className="search-container">
-      <SearchBar />
+      <SearchBar value={searchValue} onChange={onSearchChange} />
       <SearchButton />
     </div>
   );
