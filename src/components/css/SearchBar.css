@@ -1,0 +1,9 @@
+.SearchBar-container {
+  width: 50%;
+}
+
+.SearchBar {
+  width: 100%;
+  height: 1.5rem;
+  padding: .2rem;
+}
