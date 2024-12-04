@@ -1,33 +1,37 @@
-import logo from './logo.svg';
 import React, { useState } from 'react';
 import SearchSongs from './components/SearchSongs';
+import Tracklist from './components/Tracklist';
+import { handleChange, handleSubmit } from './containers/utils';
 import './App.css';
 import './components/css/SearchBar.css';
 
+// Temporary Search Results - Hard Coded JSON
+// import dataJson from './resources/songsExample.json';
+
 function App() {
-  const [song, setSong] = useState('')
-  const handleChange = (event) => {
-    const { value } = event.target;
-    setSong(value);
-  };
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();   
-    const { value } = event.target;
-    setSong(value);
-    console.log(value);
-  };
+  const [searchValue, setsearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>GEAGA</p>
-      </header> 
-      <div>
-        <p>Gsgag</p>
-        <SearchSongs searchValue={song} onSearchChange={handleChange}/>
-      </div>
+      <header>
+        <h1>Jammming</h1>
+        <h2>Spotify Playlist Maker</h2>
+      </header>
+      <main className="Main">
+        <div id='searchBar'>
+          <SearchSongs 
+            searchValue={searchValue} 
+            onSearchChange={handleChange(setsearchValue)} 
+            onSearchSubmit={handleSubmit(searchValue, setsearchValue)} 
+          />
+        </div>
+        <div className="SearchResults">
+          <Tracklist />
+        </div>
+
+      </main>
+      
     </div>
   );
 }

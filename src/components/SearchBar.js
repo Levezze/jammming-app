@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 function SearchBar({ value, onChange }) {
-
   return (
-    <form className='SearchBar-container'>
+    <>
       <input 
       className="SearchBar"
       type='text'
@@ -14,7 +12,7 @@ function SearchBar({ value, onChange }) {
       onChange={onChange} 
       placeholder='Search for songs...' 
       />
-    </form>
+    </>
   );
 };
 

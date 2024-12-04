@@ -1,11 +1,7 @@
 import React from "react";
 
 function SearchButton() {
-  return (
-    <>
-      <button>Search</button>
-    </>
-  );
+  return <button type='submit'>Search</button>;
 };
 
 export default SearchButton;

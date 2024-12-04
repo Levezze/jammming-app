@@ -3,12 +3,12 @@ import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import './css/SearchSongs.css'
 
-function SearchSongs({ searchValue, onSearchChange }) {
+function SearchSongs({ searchValue, onSearchChange, onSearchSubmit }) {
   return (
-    <div className="search-container">
+    <form className="search-container" onSubmit={onSearchSubmit}>
       <SearchBar value={searchValue} onChange={onSearchChange} />
       <SearchButton />
-    </div>
+    </form>
   );
 };
 
