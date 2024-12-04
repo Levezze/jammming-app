@@ -24,26 +24,26 @@ const findSongs = (result, searchValue) => {
     console.log("No results to process.")
     return;
   }
-
-  let selectedResults = []
-  const searchResults = result.map((value) => {
-    if (value['name'].toLowerCase().includes(searchValue.toLowerCase())) {
-      console.log(value);
-    };
-  });
+  const includesSearch = (item, category) => item[category].toLowerCase().includes(searchValue.toLowerCase());
+  const searchResults = result.filter(value => 
+    includesSearch(value, 'name') 
+    || includesSearch(value, 'artist') 
+    || includesSearch(value, 'album')
+  );
+  return searchResults;
 };
 
-export const handleSubmit = (val, setVal) => async (event) => {
+export const handleSubmit = (val, setVal, setResult) => async (event) => {
   event.preventDefault();
   console.log("Search value: " + val);
   try {
     const results = await getJson();
-    console.log(results);
-
-    findSongs(results, val);
+    const resultArray = findSongs(results, val);
+    setResult(resultArray);
+    // console.log(resultArray);    
     setVal("");
-  } catch (error) {
+  } 
+  catch (error) {
     console.log("Error in handleSubmit: " + error);
   }
-
 };

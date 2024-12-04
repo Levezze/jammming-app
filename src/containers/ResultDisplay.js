@@ -1,7 +1,18 @@
 import React from "react";
+import './resultDisplay.css';
 
-function ResultDisplay({ resultList }) {
-  // console.log("resultList");
-};
+export const resultDisplay = (array) => {
+  const eachSong = arr => {
+    arr.map(each => {
+      (
+        <li>
+          <div className='eachSong'>
 
-export default ResultDisplay;
+          </div>
+        </li>
+      );
+    })
+  }
+
+  return eachSong(array);
+}

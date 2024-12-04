@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchSongs from './components/SearchSongs';
-import Tracklist from './components/Tracklist';
+import SearchResults from './components/SearchResults';
 import { handleChange, handleSubmit } from './containers/utils';
 import './App.css';
 import './components/css/SearchBar.css';
 
-// Temporary Search Results - Hard Coded JSON
-// import dataJson from './resources/songsExample.json';
 
 function App() {
   const [searchValue, setsearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    console.log(searchResults);
+  },[searchResults])
 
   return (
     <div className="App">
@@ -19,15 +21,14 @@ function App() {
         <h2>Spotify Playlist Maker</h2>
       </header>
       <main className="Main">
-        <div id='searchBar'>
+        <div id='SearchSongs'>
           <SearchSongs 
             searchValue={searchValue} 
-            onSearchChange={handleChange(setsearchValue)} 
-            onSearchSubmit={handleSubmit(searchValue, setsearchValue)} 
-          />
+            onSearchChange={(event) => handleChange(setsearchValue)(event)} 
+            onSearchSubmit={(event) => handleSubmit(searchValue, setsearchValue, setSearchResults)(event)} />
         </div>
-        <div className="SearchResults">
-          <Tracklist />
+        <div>
+          <SearchResults searchResultsArray={searchResults} />
         </div>
 
       </main>

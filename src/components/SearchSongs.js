@@ -5,7 +5,7 @@ import './css/SearchSongs.css'
 
 function SearchSongs({ searchValue, onSearchChange, onSearchSubmit }) {
   return (
-    <form className="search-container" onSubmit={onSearchSubmit}>
+    <form className="SearchSongs" onSubmit={onSearchSubmit}>
       <SearchBar value={searchValue} onChange={onSearchChange} />
       <SearchButton />
     </form>
