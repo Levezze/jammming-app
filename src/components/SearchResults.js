@@ -1,12 +1,15 @@
 import React from "react";
-import Tracklist from "./Tracklist";
+import Track from "./Track";
 import './css/SearchResults.css'
 
-function SearchResults({ searchResultsArray }) {
-  // console.log(`Test: ${searchResultsArray[0]['name']}`)
+
+function SearchResults({ searchResultsArray, addSong }) {
   return (
     <div className="SearchResults">
-      <Tracklist results={searchResultsArray} />
+      <h2>Results</h2>
+      <Track 
+        results={searchResultsArray}
+        add={addSong} />
     </div>
   );
 }

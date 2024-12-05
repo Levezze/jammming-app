@@ -12,4 +12,4 @@ function SearchSongs({ searchValue, onSearchChange, onSearchSubmit }) {
   );
 };
 
-export default SearchSongs;
+export default SearchSongs; 

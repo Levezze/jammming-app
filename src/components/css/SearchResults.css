@@ -1,3 +1,7 @@
 .SearchResults {
   border: 1px solid black;
 }
+
+ul {
+  padding: 0 20px;
+}

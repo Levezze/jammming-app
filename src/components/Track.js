@@ -1,21 +1,22 @@
 import React from "react";
+import AddButton from "./AddButton";
+import './css/Track.css'
 
-function Track({ resultList }) {
+
+function Track({ results, add }) {
   const eachSong = array => {
     return array.map((each) => (
-        <li key={each['id']}>
-          <div className='eachSong'>
-            <p>{`Song: ${each['name']}`}</p>
-            <p>{`Artist: ${each['artist']}`}</p>
-            <p>{`Album: ${each['album']}`}</p>
+        <li key={each['id']} className="songContainer">
+          <div className="eachSong">
+            <h3 className="h3">{`${each['name']}`}</h3>
+            <h4 className="h4">{`${each['artist']} | ${each['album']}`}</h4>
           </div>
+          <AddButton />
         </li>
       )
     );
   };
-  // console.log(resultList[2]['name']);
-  // console.log((eachSong(resultList)));
-  return <ul>{eachSong(resultList)}</ul>;
+  return <ul>{eachSong(results )}</ul>;
 }
 
 export default Track;

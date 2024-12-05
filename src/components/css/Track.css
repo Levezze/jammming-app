@@ -1,0 +1,22 @@
+.songContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #1c1c1c;
+  margin-bottom: 20px;
+}
+
+.eachSong {
+  display: flex;
+  flex-direction: column;
+}
+
+.h3 {
+  margin: 0;
+  text-align: left;
+}
+
+.h4 {
+  margin: 0;
+  text-align: left;
+}

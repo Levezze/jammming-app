@@ -11,7 +11,6 @@ const getJson = async () => {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }
     const jsonResponse = await response.json();
-    // console.log(jsonResponse[5]['name'].toLowerCase().includes('J'.toLowerCase()));
     return jsonResponse;
   } catch (error) {
     console.log(error);
@@ -25,12 +24,16 @@ const findSongs = (result, searchValue) => {
     return;
   }
   const includesSearch = (item, category) => item[category].toLowerCase().includes(searchValue.toLowerCase());
-  const searchResults = result.filter(value => 
-    includesSearch(value, 'name') 
-    || includesSearch(value, 'artist') 
-    || includesSearch(value, 'album')
-  );
-  return searchResults;
+  if (searchValue) {
+    const searchResults = result.filter(value => 
+      includesSearch(value, 'name') 
+      || includesSearch(value, 'artist') 
+      || includesSearch(value, 'album')
+    )
+    return searchResults;
+  } else {
+    return [];
+  }
 };
 
 export const handleSubmit = (val, setVal, setResult) => async (event) => {
@@ -46,4 +49,8 @@ export const handleSubmit = (val, setVal, setResult) => async (event) => {
   catch (error) {
     console.log("Error in handleSubmit: " + error);
   }
+};
+
+export const addSong = () => {
+  
 };
