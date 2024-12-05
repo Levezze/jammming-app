@@ -54,3 +54,7 @@ export const handleSubmit = (val, setVal, setResult) => async (event) => {
 export const addSong = (song, setList) => {
   setList(prev => [...prev, song]);
 };
+
+export const removeSong = (array, id, set) => {
+  set(array.filter(song => song.id !== id));
+};

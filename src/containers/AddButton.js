@@ -7,21 +7,23 @@ function AddButton({ each, set, songs }) {
   const [active, setActive] = useState(false)
   
   useEffect(() => {
-    const id = each['id'];
-
+    const songId = each['id'];
     if (songs.length > 0) {
-      for (let i = 0; i < songs.length; i++) {
-        if (songs[i]['id'] === id) {
-          setActive(true)
+      const ids = songs.map(({id}) => id)
+      if (ids.includes(songId)) {
+        setActive(true);
+        } else {
+        setActive(false);
         }
-      }
+      } else {
+      setActive(false);
     }
   },[songs])
   
   return <button 
           disabled={active}
           className="AddButton"
-          onClick={() => addSong(each, set, songs, setActive)}>+</button>
+          onClick={() => addSong(each, set)}>+</button>
 };
 
 export default AddButton;

@@ -11,16 +11,16 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    console.log("Search results:", searchResults);
-  },[searchResults])
-
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('');
 
   useEffect(() => {
     console.log("Current playlist:", playlist);
   },[playlist])
+
+  useEffect(() => {
+    console.log("Search results:", searchResults);
+  },[searchResults, playlist])
 
   return (
     <div className="App">
@@ -42,7 +42,8 @@ function App() {
         <Playlist 
           playlistNameValue={playlistName}
           playlistNameChange={(event) => handleChange(setPlaylistName)(event)}
-          playlist={playlist} />
+          playlist={playlist}
+          setPlaylist={setPlaylist} />
       </main>
     </div>
   );

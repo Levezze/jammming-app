@@ -1,6 +1,7 @@
 import React from "react";
+import RemoveButton from "./RemoveButton";
 
-function Tracklist({ playlist }) {
+function Tracklist({ playlist, setPlaylist }) {
   const eachSong = array => {
     return array.map((each) => (
       <li key={each['id']} className="songContainer">
@@ -8,7 +9,10 @@ function Tracklist({ playlist }) {
           <h4 className="h3">{`${each['name']}`}</h4>
           <h5 className="h4">{`${each['artist']} | ${each['album']}`}</h5>
         </div>
-        <button>-</button>
+        <RemoveButton
+          array={array}
+          id={each['id']}
+          set={setPlaylist}/>
       </li>
       )
     );
