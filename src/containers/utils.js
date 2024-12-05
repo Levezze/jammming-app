@@ -51,6 +51,6 @@ export const handleSubmit = (val, setVal, setResult) => async (event) => {
   }
 };
 
-export const addSong = () => {
-  
+export const addSong = (song, setList) => {
+  setList(prev => [...prev, song]);
 };

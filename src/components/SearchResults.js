@@ -1,15 +1,16 @@
 import React from "react";
-import Track from "./Track";
+import Track from "../containers/Track";
 import './css/SearchResults.css'
 
 
-function SearchResults({ searchResultsArray, addSong }) {
+function SearchResults({ searchResultsArray, addSong, playlistSongs }) {
   return (
     <div className="SearchResults">
-      <h2>Results</h2>
+      <h3>Results</h3>
       <Track 
         results={searchResultsArray}
-        add={addSong} />
+        set={addSong}
+        songs={playlistSongs} />
     </div>
   );
 }

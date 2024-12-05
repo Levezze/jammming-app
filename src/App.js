@@ -8,13 +8,19 @@ import './components/css/SearchBar.css';
 
 
 function App() {
-  const [searchValue, setsearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [playlist, setPlaylist] = useState([]);
 
   useEffect(() => {
-    console.log(searchResults);
+    console.log("Search results:", searchResults);
   },[searchResults])
+
+  const [playlist, setPlaylist] = useState([]);
+  const [playlistName, setPlaylistName] = useState('');
+
+  useEffect(() => {
+    console.log("Current playlist:", playlist);
+  },[playlist])
 
   return (
     <div className="App">
@@ -24,15 +30,19 @@ function App() {
         <div id='SearchSongs'>
           <SearchSongs 
             searchValue={searchValue} 
-            onSearchChange={(event) => handleChange(setsearchValue)(event)} 
-            onSearchSubmit={(event) => handleSubmit(searchValue, setsearchValue, setSearchResults)(event)} />
+            onSearchChange={(event) => handleChange(setSearchValue)(event)} 
+            onSearchSubmit={(event) => handleSubmit(searchValue, setSearchValue, setSearchResults)(event)} />
         </div>
       </header>
       <main className="Main">
         <SearchResults 
           searchResultsArray={searchResults}
+          playlistSongs={playlist}
           addSong={setPlaylist} />
-        <Playlist playlist={playlist} />
+        <Playlist 
+          playlistNameValue={playlistName}
+          playlistNameChange={(event) => handleChange(setPlaylistName)(event)}
+          playlist={playlist} />
       </main>
     </div>
   );
