@@ -5,28 +5,36 @@ import Playlist from './components/Playlist';
 import { handleChange, handleSubmit } from './containers/utils';
 import './App.css';
 import './components/css/SearchBar.css';
+import AuthRouter from './components/Router';
+import TestButton from './PKCE/TestButton';
 
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('');
+  const [uriList, setUriList] = useState([]);
+
+  useEffect(() => {
+    console.log("Search results:", searchResults);
+  },[searchResults])
 
   useEffect(() => {
     console.log("Current playlist:", playlist);
   },[playlist])
 
   useEffect(() => {
-    console.log("Search results:", searchResults);
-  },[searchResults, playlist])
+    console.log("Sent URI Array:", uriList);
+  },[uriList])
 
   return (
     <div className="App">
       <header>
         <h1>Jammming</h1>
         <h2>Spotify Playlist Maker</h2>
+        <AuthRouter />
+        <TestButton />
         <div id='SearchSongs'>
           <SearchSongs 
             searchValue={searchValue} 
@@ -43,7 +51,8 @@ function App() {
           playlistNameValue={playlistName}
           playlistNameChange={(event) => handleChange(setPlaylistName)(event)}
           playlist={playlist}
-          setPlaylist={setPlaylist} />
+          setPlaylist={setPlaylist}
+          setUriList={setUriList} />
       </main>
     </div>
   );

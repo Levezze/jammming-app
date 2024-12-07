@@ -3,60 +3,70 @@
     "id": "1",
     "name": "Bohemian Rhapsody",
     "artist": "Queen",
-    "album": "A Night at the Opera"
+    "album": "A Night at the Opera",
+    "uri": "uri:queen:bohemian_rhapsody"
   },
   {
     "id": "2",
     "name": "Stairway to Heaven",
     "artist": "Led Zeppelin",
-    "album": "Led Zeppelin IV"
+    "album": "Led Zeppelin IV",
+    "uri": "uri:led_zeppelin:stairway_to_heaven"
   },
   {
     "id": "3",
     "name": "Hotel California",
     "artist": "Eagles",
-    "album": "Hotel California"
+    "album": "Hotel California",
+    "uri": "uri:eagles:hotel_california"
   },
   {
     "id": "4",
     "name": "Imagine",
     "artist": "John Lennon",
-    "album": "Imagine"
+    "album": "Imagine",
+    "uri": "uri:john_lennon:imagine"
   },
   {
     "id": "5",
     "name": "Smells Like Teen Spirit",
     "artist": "Nirvana",
-    "album": "Nevermind"
+    "album": "Nevermind",
+    "uri": "uri:nirvana:smells_like_teen_spirit"
   },
   {
     "id": "6",
     "name": "Hey Jude",
     "artist": "The Beatles",
-    "album": "Hey Jude"
+    "album": "Hey Jude",
+    "uri": "uri:the_beatles:hey_jude"
   },
   {
     "id": "7",
     "name": "Billie Jean",
     "artist": "Michael Jackson",
-    "album": "Thriller"
+    "album": "Thriller",
+    "uri": "uri:michael_jackson:billie_jean"
   },
   {
     "id": "8",
     "name": "Wonderwall",
     "artist": "Oasis",
-    "album": "(What’s the Story) Morning Glory?"
+    "album": "(What’s the Story) Morning Glory?",
+    "uri": "uri:oasis:wonderwall"
   },
   {
     "id": "9",
     "name": "Shape of You",
     "artist": "Ed Sheeran",
-    "album": "÷ (Divide)"
+    "album": "÷ (Divide)",
+    "uri": "uri:ed_sheeran:shape_of_you"
   },
   {
     "id": "10",
     "name": "Rolling in the Deep",
     "artist": "Adele",
-    "album": "21"
+    "album": "21",
+    "uri": "uri:adele:rolling_in_the_deep"
   }
 ]
