@@ -1,6 +1,6 @@
 import React from "react";
-import Track from "../containers/Track";
-import './css/SearchResults.css'
+import Track from "../containers/Track/Track";
+import './SearchResults.css'
 
 
 function SearchResults({ searchResultsArray, addSong, playlistSongs }) {

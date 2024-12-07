@@ -58,3 +58,18 @@ export const addSong = (song, setList) => {
 export const removeSong = (array, id, set) => {
   set(array.filter(song => song.id !== id));
 };
+
+const hash = window.location.hash;
+const params = new URLSearchParams(hash.substring(1));
+console.log(params.get('expires_in'));
+const accessToken = params.get('expires_in');
+const state_test = params.get('state');
+const savedSt2qwrqwate = localStorage.getItem('spotify_auth_state');
+const asfasf = localStorage.getItem('spotify_token_expiration');
+const dfhdfh = localStorage.getItem('spotify_auth_state');
+console.log(`
+  ${savedSt2qwrqwate}
+  ${asfasf}
+  ${state_test}
+  `)
+

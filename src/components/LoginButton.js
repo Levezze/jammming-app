@@ -1,8 +1,8 @@
 import React from "react";
-import { handleLogin } from "../PKCE/Authorization";
+import { handleLoginImplicit, loginToSpotify } from "../implicitFlow/LoginToSpotify";
 
 function LoginButton() {
-  return <button onClick={handleLogin}>Login to Spotify</button>
+  // return <button onClick={loginToSpotify}>Login to Spotify</button>
 };
 
 export default LoginButton;

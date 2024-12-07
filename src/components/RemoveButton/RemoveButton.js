@@ -1,6 +1,6 @@
 import React from "react";
 import { removeSong } from "../containers/utils";
-import './css/RemoveButton.css'
+import './RemoveButton.css'
 
 
 function RemoveButton({ array, id, set }) {

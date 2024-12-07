@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import SearchSongs from './components/SearchSongs';
 import SearchResults from './components/SearchResults';
-import Playlist from './components/Playlist';
-import { handleChange, handleSubmit } from './containers/utils';
+import Playlist from '../components/Playlist/Playlist';
+import { handleChange, handleSubmit } from '../containers/utils';
 import './App.css';
 import './components/css/SearchBar.css';
-import AuthRouter from './components/Router';
-import TestButton from './PKCE/TestButton';
+import TestButton from '../PKCE/TestButton';
+import LoginToSpotify from '../implicitFlow/LoginToSpotify';
+import AuthRouter from '../components/AuthRouter';
 
 
 function App() {
@@ -33,8 +34,7 @@ function App() {
       <header>
         <h1>Jammming</h1>
         <h2>Spotify Playlist Maker</h2>
-        <AuthRouter />
-        <TestButton />
+        <LoginToSpotify />
         <div id='SearchSongs'>
           <SearchSongs 
             searchValue={searchValue} 
