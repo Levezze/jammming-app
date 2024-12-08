@@ -1,5 +1,5 @@
 import React from "react";
-import Track from "../containers/Track/Track";
+import Track from "../../containers/Track/Track";
 import './SearchResults.css'
 
 

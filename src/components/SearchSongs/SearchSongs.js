@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "./SearchBar";
-import SearchButton from "./SearchButton";
+import SearchBar from "../SearchBar/SearchBar";
+import SearchButton from "../SearchButton/SearchButton";
 import './SearchSongs.css'
 
 function SearchSongs({ searchValue, onSearchChange, onSearchSubmit }) {

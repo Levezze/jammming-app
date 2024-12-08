@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import SearchSongs from './components/SearchSongs';
-import SearchResults from './components/SearchResults';
+import SearchSongs from '../components/SearchSongs/SearchSongs';
+import SearchResults from '../components/SearchResults/SearchResults';
 import Playlist from '../components/Playlist/Playlist';
 import { handleChange, handleSubmit } from '../containers/utils';
 import './App.css';
-import './components/css/SearchBar.css';
 import TestButton from '../PKCE/TestButton';
 import LoginToSpotify from '../implicitFlow/LoginToSpotify';
 import AuthRouter from '../components/AuthRouter';
-
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
