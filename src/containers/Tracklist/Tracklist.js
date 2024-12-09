@@ -1,14 +1,12 @@
 import React from "react";
 import RemoveButton from "../../components/RemoveButton/RemoveButton";
+import SongsList from "../../components/SongsList/SongsList";
 
 function Tracklist({ playlist, setPlaylist }) {
   const eachSong = array => {
     return array.map((each) => (
       <li key={each['id']} className="songContainer">
-        <div className="eachSong">
-          <h4 className="h3">{`${each['name']}`}</h4>
-          <h5 className="h4">{`${each['artist']} | ${each['album']}`}</h5>
-        </div>
+        <SongsList each={each} />
         <RemoveButton
           array={array}
           id={each['id']}

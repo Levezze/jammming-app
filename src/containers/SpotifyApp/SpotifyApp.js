@@ -81,7 +81,7 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     const strTypes = encodeURIComponent(types.join(','));
     const limit = 20;
     const url = `${endpoint}?q=${q}&type=${strTypes}&limit=${limit}`;
-    console.log(url);
+    // console.log(url);
     try {
       const response = await fetch(url, {
         headers: {

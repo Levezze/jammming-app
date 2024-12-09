@@ -5,21 +5,23 @@ import SearchResults from '../components/SearchResults/SearchResults';
 import Playlist from '../components/Playlist/Playlist';
 import SpotifyApp from '../containers/SpotifyApp/SpotifyApp';
 // Functions
-import { handleChange, handleSubmit } from '../utils/utils';
+import { handleChange } from '../utils/utils';
 // Style
 import './App.css';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({});
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('');
   const [uriList, setUriList] = useState([]);
   const [accessToken, setAccessToken ] = useState(null);
 
-  useEffect(() => {
-    console.log("Search results:", searchResults);
-  },[searchResults])
+  // useEffect(() => {
+  //   if (searchResults) {
+  //   console.log("Search results:", searchResults['tracks'].items, "keys:", Object.keys(searchResults));
+  //   }
+  // },[searchResults])
 
   useEffect(() => {
     console.log("Current playlist:", playlist);

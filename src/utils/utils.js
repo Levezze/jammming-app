@@ -36,21 +36,6 @@ const findSongs = (result, searchValue) => {
   }
 };
 
-export const handleSubmit = (val, setVal, setResult) => async (event) => {
-  event.preventDefault();
-  console.log("Search value: " + val);
-  try {
-    const results = await getJson();
-    const resultArray = findSongs(results, val);
-    setResult(resultArray);
-    // console.log(resultArray);    
-    setVal("");
-  } 
-  catch (error) {
-    console.log("Error in handleSubmit: " + error);
-  }
-};
-
 export const addSong = (song, setList) => {
   setList(prev => [...prev, song]);
 };
