@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+// Components
 import SearchSongs from '../components/SearchSongs/SearchSongs';
 import SearchResults from '../components/SearchResults/SearchResults';
 import Playlist from '../components/Playlist/Playlist';
-import { handleChange, handleSubmit } from '../containers/utils';
+import SpotifyApp from '../containers/SpotifyApp/SpotifyApp';
+// Functions
+import { handleChange, handleSubmit } from '../utils/utils';
+// Style
 import './App.css';
-import TestButton from '../PKCE/TestButton';
-import LoginToSpotify from '../implicitFlow/LoginToSpotify';
-import AuthRouter from '../components/AuthRouter';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
@@ -14,6 +15,7 @@ function App() {
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('');
   const [uriList, setUriList] = useState([]);
+  const [accessToken, setAccessToken ] = useState(null);
 
   useEffect(() => {
     console.log("Search results:", searchResults);
@@ -32,13 +34,13 @@ function App() {
       <header>
         <h1>Jammming</h1>
         <h2>Spotify Playlist Maker</h2>
-        <LoginToSpotify />
-        <div id='SearchSongs'>
-          <SearchSongs 
-            searchValue={searchValue} 
-            onSearchChange={(event) => handleChange(setSearchValue)(event)} 
-            onSearchSubmit={(event) => handleSubmit(searchValue, setSearchValue, setSearchResults)(event)} />
-        </div>
+        <SpotifyApp 
+          accessToken={accessToken}
+          setAccessToken={setAccessToken}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          setSearchResults={setSearchResults}
+           />
       </header>
       <main className="Main">
         <SearchResults 
