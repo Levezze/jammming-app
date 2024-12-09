@@ -54,7 +54,8 @@ function App() {
           playlistNameChange={(event) => handleChange(setPlaylistName)(event)}
           playlist={playlist}
           setPlaylist={setPlaylist}
-          setUriList={setUriList} />
+          setUriList={setUriList}
+          accessToken={accessToken} />
       </main>
     </div>
   );
