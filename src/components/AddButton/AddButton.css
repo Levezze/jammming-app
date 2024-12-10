@@ -17,3 +17,10 @@
 .AddButton:hover {
   background-color: #6207e3;
 }
+
+.AddButton:disabled,
+.AddButton[disabled]{
+  /* border: 1px solid #999999; */
+  background-color: #cccccc;
+  color: #888888;
+}

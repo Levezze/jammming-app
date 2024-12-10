@@ -1,6 +1,11 @@
+.SearchResults {
+  height: 100vh;
+  overflow: auto;
+}
+
 .SearchResults ul {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   /* gap: 5px; */
 }
 

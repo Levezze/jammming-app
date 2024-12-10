@@ -4,6 +4,7 @@
 
 .songContainer {
   box-sizing: border-box;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,14 +14,15 @@
   padding: 5px;
   background-color: white;
   color: #1c1c1c;
-  /* border: 3px solid #7c25f8; */
   border-radius: 25px;
   margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .albumImage {
   margin-left: 10px;
   height: 50px;
+  align-self: center;
   /* border-radius: 50%; */
   /* border: 1px solid #3c3c3c; */
 }
@@ -30,6 +32,7 @@
   flex-direction: column;
   padding-left: 10px;
   max-width: 60%;
+
 }
 
 .h3 {

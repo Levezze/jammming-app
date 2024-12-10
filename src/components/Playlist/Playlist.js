@@ -1,7 +1,6 @@
 import React from "react";
-import PlaylistName from "../PlaylistName/PlaylistName";
-import SavePlaylist from "../../containers/SavePlaylist/SavePlaylist";
-import Tracklist from "../../containers/Tracklist/Tracklist";
+import SavePlaylist from "../SavePlaylist/SavePlaylist";
+import Tracklist from "../Tracklist/Tracklist";
 
 function Playlist({ playlistNameValue, playlistNameChange, playlist, setPlaylist, setUriList, accessToken }) {
   return (

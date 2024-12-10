@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 // Components
-import SearchSongs from '../components/SearchSongs/SearchSongs';
 import SearchResults from '../components/SearchResults/SearchResults';
 import Playlist from '../components/Playlist/Playlist';
-import SpotifyApp from '../containers/SpotifyApp/SpotifyApp';
+import SpotifyApp from '../components/SpotifyApp/SpotifyApp';
 // Functions
 import { handleChange } from '../utils/utils';
 // Style
@@ -30,6 +29,20 @@ function App() {
   useEffect(() => {
     console.log("Sent URI Array:", uriList);
   },[uriList])
+
+  useEffect(() => {
+    const loginButtonStyle = document.getElementById('login-button');
+    const searchButtonStyle = document.getElementById('search-btn');
+    if (!accessToken) {
+      console.log('no token')
+      loginButtonStyle.style.display = 'block';
+      searchButtonStyle.style.display = 'none';
+    } else {
+      console.log('yes token')
+      loginButtonStyle.style.display = 'none';
+      searchButtonStyle.style.display = 'block';
+    }
+  }, [accessToken])
 
   return (
     <div className="App">

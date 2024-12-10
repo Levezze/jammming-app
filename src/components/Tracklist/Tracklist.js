@@ -1,5 +1,5 @@
 import React from "react";
-import RemoveButton from "../../components/RemoveButton/RemoveButton";
+import RemoveButton from "../RemoveButton/RemoveButton";
 import SongsList from "../../components/SongsList/SongsList";
 
 function Tracklist({ playlist, setPlaylist }) {

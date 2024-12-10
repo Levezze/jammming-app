@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
-import SearchSongs from "../../components/SearchSongs/SearchSongs";
+import SearchSongs from "../SearchSongs/SearchSongs";
+import LoginButton from "../LoginButton/LoginButton";
 import { handleChange } from "../../utils/utils";
-import LoginButton from "../../components/LoginButton/LoginButton";
 
 function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults }) {
   const CLIENT_ID = '5516485dca62466fbbe834de9856c7ed';
   const REDIRECT_URI = 'http://localhost:3000/callback';
   const STATE_KEY = 'spotify_auth_state';
   const SCOPE = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
+
+  // useEffect(() => {
+  //   localStorage.removeItem('spotify_access_token');
+  //   localStorage.removeItem('spotify_token_expiration');
+  //   setAccessToken(null);
+  // }, []);
 
   const loginToSpotify = () => {
     const state = crypto.randomUUID();
@@ -41,6 +47,7 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
       localStorage.removeItem(STATE_KEY);
 
       setAccessToken(accessToken);
+      console.log(expirationTime);
 
       setTimeout(() => {
         localStorage.removeItem('spotify_access_token');
@@ -58,18 +65,8 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     const token = localStorage.getItem('spotify_access_token');
     if (!token) {
       console.log('Please log in to Spotify.')
-      const loginButtonStyle = document.getElementById('login-button');
-      loginButtonStyle.style.display = 'block';
-      const searchButtonStyle = document.getElementById('search-btn');
-      searchButtonStyle.style.display = 'none';
       return null;
-    } else {
-      const loginButtonStyle = document.getElementById('login-button');
-      loginButtonStyle.style.display = 'none';
-      const searchButtonStyle = document.getElementById('search-btn');
-      searchButtonStyle.style.display = 'block';
     }
-    // console.log(token);
     return token;
   };
 
@@ -77,10 +74,8 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     if (!accessToken) {
       handleSpotifyCallback();
       const savedToken = getSpotifyAccessToken();
-      // console.log('token:', savedToken)
       if (savedToken) setAccessToken(savedToken);
     }
-    
   }, [accessToken]);
 
   const handleSubmit = (searchValue, setSearchValue, setSearchResults) => async (event) => {
@@ -95,9 +90,8 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     console.log(searchValue);
     const types = ['track'];
     const strTypes = encodeURIComponent(types.join(','));
-    const limit = 10;
+    const limit = 20;
     const url = `${endpoint}?q=${q}&type=${strTypes}&limit=${limit}`;
-    // console.log(url);
     try {
       const response = await fetch(url, {
         headers: {
@@ -115,7 +109,7 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     }
     setSearchValue('');
   };
-  
+
   return (
   <>
     <SearchSongs 

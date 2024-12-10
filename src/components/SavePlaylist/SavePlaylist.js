@@ -1,5 +1,5 @@
 import React from "react";
-import PlaylistName from "../../components/PlaylistName/PlaylistName";
+import PlaylistName from "../PlaylistName/PlaylistName";
 
 function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleNameChange }) {
   const uris = (array) => {
