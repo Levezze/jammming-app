@@ -33,10 +33,11 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
   const handleSubmit = (accessToken) => async (event) => {
     event.preventDefault();
     const myId = await getId(accessToken);
-    console.log(myId);
+    // console.log(myId);
     if (myId && playlistName.length > 0) {
       const url = `https://api.spotify.com/v1/users/${myId}/playlists`;
       try {
+        // Create Playlist
         const response = await fetch(url, {
           method: 'POST',
           headers: {
@@ -48,10 +49,32 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
             public: false,
           }),
         });
-        if (!response.ok)
-          throw new Error(`HTTP error! Status ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP error! Status ${response.status}`);
         const jsonResponse = await response.json();
         console.log("Playlist created: ", jsonResponse);
+        const playlistId = jsonResponse['id'];
+        // Add Songs
+        const songsUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        try {
+          const songsResponse = await fetch(songsUrl, {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              uris: playlist.map(each => each['uri']),
+              position: 0,
+            }),
+          });
+          if (!songsResponse.ok)
+            throw new Error(`HTTP error! Status ${songsResponse.status}`);
+          const songsJsonResponse = await songsResponse.json();
+          console.log("Songs added to playlist: ", songsJsonResponse);
+          alert("Songs added to playlist");
+          } catch (error) {
+            console.log("Error adding songs: ", error);
+          }
       } catch (error) {
         console.log("Error creating playlist: ", error);
       }
@@ -65,7 +88,7 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
       <PlaylistName
         playlistName={playlistName}
         handleNameChange={handleNameChange} />
-      <button type='submit' disabled={disableButton}>Save Playlist to Spotify</button>
+      <button type='submit' disabled={disableButton}>Save Playlist</button>
     </form>
   );
 };

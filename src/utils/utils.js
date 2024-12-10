@@ -43,7 +43,6 @@ export const handleSubmit = (val, setVal, setResult) => async (event) => {
     const results = await getJson();
     const resultArray = findSongs(results, val);
     setResult(resultArray);
-    // console.log(resultArray);    
     setVal("");
   } 
   catch (error) {

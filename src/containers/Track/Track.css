@@ -2,13 +2,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid #1c1c1c;
-  margin-bottom: 20px;
+  align-content: center;
+  align-items: center;
+  border: 1px solid #3c3c3c;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
+.songFullContainer {
+  display: flex;
+}
+
+.albumImage {
+  height: 50px;
+}
 .eachSong {
   display: flex;
   flex-direction: column;
+  padding-left: 5px;
 }
 
 .h3 {

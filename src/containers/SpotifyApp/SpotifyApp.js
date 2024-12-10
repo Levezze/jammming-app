@@ -79,7 +79,7 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     console.log(searchValue);
     const types = ['track'];
     const strTypes = encodeURIComponent(types.join(','));
-    const limit = 20;
+    const limit = 10;
     const url = `${endpoint}?q=${q}&type=${strTypes}&limit=${limit}`;
     // console.log(url);
     try {
