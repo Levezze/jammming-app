@@ -1,5 +1,10 @@
+body {
+  background-image: linear-gradient(rgb(4, 11, 5) 15%, rgb(4, 11, 5) 85%);
+}
+
 .App {
   text-align: center;
+  color: white;
 }
 
 .App-logo {

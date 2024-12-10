@@ -1,6 +1,8 @@
 .SearchSongs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 20px;
+  justify-items: center;
+  margin: 20px 0;
+  padding: 0 20px;
 }

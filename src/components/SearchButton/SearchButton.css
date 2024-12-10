@@ -1,0 +1,29 @@
+.search-btn {
+  color: #fff;
+  background-color: #7c25f8;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 18px 48px 16px;
+  transition-property: background-color;
+  transition-duration: .3s;
+  border-width: 0;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  cursor: pointer;
+  margin: 20px auto 0;
+  /* display: none; */
+}
+
+.search-btn h1 {
+  font-size: 2em;
+  margin-bottom: 12px;
+  margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.search-btn:hover {
+  background-color: #6207e3;
+}

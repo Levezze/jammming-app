@@ -1,25 +1,35 @@
+.songFullContainer {
+  display: flex;
+}
+
 .songContainer {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
   align-items: center;
-  border: 1px solid #3c3c3c;
   margin-bottom: 10px;
   padding: 5px;
-}
-
-.songFullContainer {
-  display: flex;
+  background-color: white;
+  color: #1c1c1c;
+  /* border: 3px solid #7c25f8; */
+  border-radius: 25px;
+  margin: 5px;
 }
 
 .albumImage {
+  margin-left: 10px;
   height: 50px;
+  /* border-radius: 50%; */
+  /* border: 1px solid #3c3c3c; */
 }
+
 .eachSong {
   display: flex;
   flex-direction: column;
-  padding-left: 5px;
+  padding-left: 10px;
+  max-width: 60%;
 }
 
 .h3 {

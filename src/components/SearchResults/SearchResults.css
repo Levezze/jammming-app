@@ -1,5 +1,7 @@
-.SearchResults {
-  /* border: 1px solid black; */
+.SearchResults ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* gap: 5px; */
 }
 
 ul {

@@ -6,7 +6,6 @@ import './SearchResults.css'
 function SearchResults({ searchResultsArray, addSong, playlistSongs }) {
   return (
     <div className="SearchResults">
-      <h3>Results</h3>
       <Track 
         results={searchResultsArray}
         set={addSong}
