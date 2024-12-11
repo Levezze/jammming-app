@@ -21,18 +21,14 @@
 
 .albumImage {
   margin-left: 10px;
-  height: 50px;
+  height: 60px;
   align-self: center;
-  /* border-radius: 50%; */
-  /* border: 1px solid #3c3c3c; */
 }
 
 .eachSong {
   display: flex;
   flex-direction: column;
   padding-left: 10px;
-  max-width: 60%;
-
 }
 
 .h3 {

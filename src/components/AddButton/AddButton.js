@@ -20,10 +20,15 @@ function AddButton({ each, set, songs }) {
     }
   },[songs])
   
-  return <button 
-          disabled={active}
-          className="AddButton"
-          onClick={() => addSong(each, set)}>+</button>
+  return (
+    <div className="buttonContainer">
+      <button 
+        disabled={active}
+        className="AddButton"
+        onClick={() => addSong(each, set)}>+</button>
+    </div>
+  
+  );
 };
 
 export default AddButton;

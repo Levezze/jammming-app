@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import SearchSongs from "../SearchSongs/SearchSongs";
 import LoginButton from "../LoginButton/LoginButton";
 import { handleChange } from "../../utils/utils";
 
-function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults }) {
+function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults }) {
   const CLIENT_ID = '5516485dca62466fbbe834de9856c7ed';
   const REDIRECT_URI = 'http://localhost:3000/callback';
   const STATE_KEY = 'spotify_auth_state';
   const SCOPE = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
 
-  // useEffect(() => {
-  //   localStorage.removeItem('spotify_access_token');
-  //   localStorage.removeItem('spotify_token_expiration');
-  //   setAccessToken(null);
-  // }, []);
+  if (Date.now() > localStorage.getItem('spotify_token_expiration')) {
+    localStorage.removeItem('spotify_access_token');
+    localStorage.removeItem('spotify_token_expiration');
+    setAccessToken(null);
+  }
 
   const loginToSpotify = () => {
     const state = crypto.randomUUID();
@@ -41,7 +41,9 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
     const savedState = localStorage.getItem(STATE_KEY);
 
     if (accessToken && state_test === savedState) {
-      const expirationTime = parseInt(expiresIn, 10) * 1000;
+      const expirationTime = Date.now() + parseInt(expiresIn, 10) * 1000;
+      console.log("date now:", Date.now())
+      console.log("expiration:", expirationTime)
       localStorage.setItem('spotify_access_token', accessToken);
       localStorage.setItem('spotify_token_expiration', expirationTime);
       localStorage.removeItem(STATE_KEY);
@@ -49,11 +51,17 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
       setAccessToken(accessToken);
       console.log(expirationTime);
 
-      setTimeout(() => {
-        localStorage.removeItem('spotify_access_token');
-        localStorage.removeItem('spotify_token_expiration');
-        setAccessToken(null);
-      }, expirationTime)
+    if (Date.now() > expirationTime) {
+      localStorage.removeItem('spotify_access_token');
+      localStorage.removeItem('spotify_token_expiration');
+      setAccessToken(null);
+    }
+
+      // setTimeout(() => {
+      //   localStorage.removeItem('spotify_access_token');
+      //   localStorage.removeItem('spotify_token_expiration');
+      //   setAccessToken(null);
+      // }, expirationTime)
     
     window.history.replaceState({}, document.title, window.location.pathname);
     } else {
@@ -108,6 +116,7 @@ function SpotifyApp({ accessToken, setAccessToken, searchValue, setSearchValue, 
       return null;
     }
     setSearchValue('');
+    scrollToResults();
   };
 
   return (

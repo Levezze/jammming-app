@@ -1,7 +1,32 @@
+
+
+.buttonContainer {
+  min-width: 50px;
+}
+
 .RemoveButton {
-  height: 25px;
-  width: 25px;
+  color: #fff;
+  background-color: #7c25f8;
+  height: 30px;
+  width: 30px;
+  font-size: 14px;
+  font-weight: bold;
   align-self: center;
   margin: 10px;
-  background-color: white;
+  white-space: normal;
+  border-width: 0;
+  transition-property: background-color;
+  transition-duration: .3s;
+  border-radius: 50%;
+}
+
+.RemoveButton:hover {
+  background-color: #b896e6;
+}
+
+.RemoveButton:disabled,
+.RemoveButton[disabled]{
+  /* border: 1px solid #999999; */
+  background-color: #cccccc;
+  color: #888888;
 }

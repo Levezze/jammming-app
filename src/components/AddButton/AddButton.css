@@ -1,3 +1,7 @@
+.buttonContainer {
+  min-width: 50px;
+}
+
 .AddButton {
   color: #fff;
   background-color: #7c25f8;
@@ -15,7 +19,7 @@
 }
 
 .AddButton:hover {
-  background-color: #6207e3;
+  background-color: #b896e6;
 }
 
 .AddButton:disabled,

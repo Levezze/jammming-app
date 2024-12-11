@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 // Components
 import SearchResults from '../components/SearchResults/SearchResults';
 import Playlist from '../components/Playlist/Playlist';
@@ -16,29 +16,31 @@ function App() {
   const [uriList, setUriList] = useState([]);
   const [accessToken, setAccessToken ] = useState(null);
 
+  const targetRef = useRef(null);
+
   // useEffect(() => {
   //   if (searchResults) {
   //   console.log("Search results:", searchResults['tracks'].items, "keys:", Object.keys(searchResults));
   //   }
   // },[searchResults])
 
-  useEffect(() => {
-    console.log("Current playlist:", playlist);
-  },[playlist])
+  // useEffect(() => {
+  //   console.log("Current playlist:", playlist);
+  // },[playlist])
 
-  useEffect(() => {
-    console.log("Sent URI Array:", uriList);
-  },[uriList])
+  // useEffect(() => {
+  //   console.log("Sent URI Array:", uriList);
+  // },[uriList])
 
   useEffect(() => {
     const loginButtonStyle = document.getElementById('login-button');
     const searchButtonStyle = document.getElementById('search-btn');
     if (!accessToken) {
-      console.log('no token')
+      // console.log('no token')
       loginButtonStyle.style.display = 'block';
       searchButtonStyle.style.display = 'none';
     } else {
-      console.log('yes token')
+      // console.log('yes token')
       loginButtonStyle.style.display = 'none';
       searchButtonStyle.style.display = 'block';
     }
@@ -47,9 +49,10 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Jammming</h1>
+        <h1>Ja<span>mmm</span>ing</h1>
         <h2>Spotify Playlist Maker</h2>
         <SpotifyApp 
+          scrollToResults={() => targetRef.current.scrollIntoView({ behavior: 'smooth' })}
           accessToken={accessToken}
           setAccessToken={setAccessToken}
           searchValue={searchValue}
@@ -59,6 +62,7 @@ function App() {
       </header>
       <main className="Main">
         <SearchResults 
+          refDiv={targetRef}
           searchResultsArray={searchResults}
           playlistSongs={playlist}
           addSong={setPlaylist} />

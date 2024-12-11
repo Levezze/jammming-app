@@ -1,4 +1,4 @@
-.search-btn {
+.save-playlist-btn {
   color: #fff;
   background-color: #7c25f8;
   font-size: 14px;
@@ -13,17 +13,17 @@
   text-transform: uppercase;
   white-space: normal;
   cursor: pointer;
-  margin: 20px auto 0;
+  margin: 10px auto 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
 }
 
-.search-btn h1 {
+.save-playlist-btn h1 {
   font-size: 2em;
   margin-bottom: 12px;
   margin-top: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.search-btn:hover {
+.save-playlist-btn:hover {
   background-color: #b896e6;
 }

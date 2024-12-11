@@ -7,20 +7,8 @@ body {
   color: white;
 }
 
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 header {
   background-color: #282c34;
-  /* min-height: 20vh; */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,15 +18,18 @@ header {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header h1 {
+  margin: 0;
+  font-size: 5rem;
+  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header h1 span {
+  color: #b896e6;
+}
+
+header h2 {
+  margin: 0 0 20px;
+  color: #b896e6;
+  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;;
 }

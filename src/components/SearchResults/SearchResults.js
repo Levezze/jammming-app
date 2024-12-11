@@ -3,9 +3,9 @@ import Track from "../Track/Track";
 import './SearchResults.css'
 
 
-function SearchResults({ searchResultsArray, addSong, playlistSongs }) {
+function SearchResults({ refDiv, searchResultsArray, addSong, playlistSongs }) {
   return (
-    <div className="SearchResults">
+    <div ref={refDiv} className="SearchResults">
       <Track 
         results={searchResultsArray}
         set={addSong}

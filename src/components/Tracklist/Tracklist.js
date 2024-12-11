@@ -1,6 +1,7 @@
 import React from "react";
 import RemoveButton from "../RemoveButton/RemoveButton";
 import SongsList from "../../components/SongsList/SongsList";
+import './Tracklist.css'
 
 function Tracklist({ playlist, setPlaylist }) {
   const eachSong = array => {
@@ -15,7 +16,12 @@ function Tracklist({ playlist, setPlaylist }) {
       )
     );
   };
-  return <ul>{eachSong(playlist)}</ul>;
+  return (
+    <div className="playlist-song-list">
+      <ul>{eachSong(playlist)}</ul>
+    </div>
+  
+  );
 };
 
 export default Tracklist;

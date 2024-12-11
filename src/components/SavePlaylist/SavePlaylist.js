@@ -1,5 +1,6 @@
 import React from "react";
 import PlaylistName from "../PlaylistName/PlaylistName";
+import './SavePlaylist.css'
 
 function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleNameChange }) {
   const uris = (array) => {
@@ -85,10 +86,12 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
 
   return (
     <form onSubmit={handleSubmit(accessToken)}>
-      <PlaylistName
-        playlistName={playlistName}
-        handleNameChange={handleNameChange} />
-      <button type='submit' disabled={disableButton}>Save Playlist</button>
+      <div className="playlist-name-container">
+        <PlaylistName
+          playlistName={playlistName}
+          handleNameChange={handleNameChange} />
+      </div>
+      <button className="save-playlist-btn" type='submit' disabled={disableButton}>Save Playlist</button>
     </form>
   );
 };
