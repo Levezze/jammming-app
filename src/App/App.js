@@ -7,6 +7,7 @@ import SpotifyApp from '../components/SpotifyApp/SpotifyApp';
 import { handleChange } from '../utils/utils';
 // Style
 import './App.css';
+import '../fonts.css'
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
@@ -17,21 +18,6 @@ function App() {
   const [accessToken, setAccessToken ] = useState(null);
 
   const targetRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (searchResults) {
-  //   console.log("Search results:", searchResults['tracks'].items, "keys:", Object.keys(searchResults));
-  //   }
-  // },[searchResults])
-
-  // useEffect(() => {
-  //   console.log("Current playlist:", playlist);
-  // },[playlist])
-
-  // useEffect(() => {
-  //   console.log("Sent URI Array:", uriList);
-  // },[uriList])
-
   useEffect(() => {
     const loginButtonStyle = document.getElementById('login-button');
     const searchButtonStyle = document.getElementById('search-btn');

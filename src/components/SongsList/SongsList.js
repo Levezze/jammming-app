@@ -6,9 +6,9 @@ function SongsList({ each }) {
     <div className="songFullContainer">
       <img src={albumImage} className="albumImage"/>
       <div className="eachSong">
-        <h4 className="h3">{`${each['name']}`}</h4>
-        <h5 className="h4">{`${each['artists'].map(element => element['name']).join(', ')}`}</h5>
-        <h6 className="h4">{`${each['album'].name}`}</h6>
+        <h4>{`${each['name']}`}</h4>
+        <h5>{`${each['artists'].map(element => element['name']).join(', ')}`}</h5>
+        <h6>{`${each['album'].name}`}</h6>
       </div>
     </div>
     

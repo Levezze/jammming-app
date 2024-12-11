@@ -6,8 +6,14 @@
 
 .playlist-song-list ul {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   padding: 0 20px;
+}
+
+@media only screen and (max-width: 450px) {
+  .playlist-song-list ul {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
 .playlist-song-list::-webkit-scrollbar {

@@ -72,7 +72,7 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
             throw new Error(`HTTP error! Status ${songsResponse.status}`);
           const songsJsonResponse = await songsResponse.json();
           console.log("Songs added to playlist: ", songsJsonResponse);
-          alert("Songs added to playlist");
+          alert(`Songs added to playlist: ${playlistName}`);
           } catch (error) {
             console.log("Error adding songs: ", error);
           }
@@ -80,6 +80,7 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
         console.log("Error creating playlist: ", error);
       }
     };
+    
   };
 
   const disableButton = playlistName.length < 1;

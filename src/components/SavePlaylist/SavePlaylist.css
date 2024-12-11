@@ -1,7 +1,9 @@
 .save-playlist-btn {
   color: #fff;
   background-color: #7c25f8;
-  font-size: 14px;
+  font-size: .9rem;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-weight: 500;
   line-height: 1;
   border-radius: 500px;
   padding: 18px 48px 16px;
@@ -15,13 +17,6 @@
   cursor: pointer;
   margin: 10px auto 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
-}
-
-.save-playlist-btn h1 {
-  font-size: 2em;
-  margin-bottom: 12px;
-  margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .save-playlist-btn:hover {

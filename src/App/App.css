@@ -20,8 +20,9 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 5rem;
-  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;;
+  font-size: clamp(3rem, 10vw, 6rem);
+  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
+  font-family: "Montserrat Underline", sans-serif;
 }
 
 header h1 span {
@@ -31,5 +32,8 @@ header h1 span {
 header h2 {
   margin: 0 0 20px;
   color: #b896e6;
-  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;;
+  text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 600;
 }
