@@ -1,0 +1,13 @@
+#shuffle-btn {
+  min-height: 3rem;
+  min-width: 3rem;
+  align-items: center;
+  background-color: transparent;
+  transition-duration: .3s;
+  border: 0;
+}
+
+#shuffle-icon {
+  width: 1.7rem;
+  align-self: center;
+}

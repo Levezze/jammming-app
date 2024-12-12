@@ -1,11 +1,11 @@
-.SearchBar-container {
-  /* width: 50%; */
+.SearchBarContainer {
+  background-color: white;
 }
 
 .SearchBar {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
   height: 3rem;
   padding: .2rem;
   color: #7c25f8;

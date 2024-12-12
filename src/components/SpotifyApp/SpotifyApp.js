@@ -1,9 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import SearchSongs from "../SearchSongs/SearchSongs";
 import LoginButton from "../LoginButton/LoginButton";
 import { handleChange } from "../../utils/utils";
 
 function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults }) {
+  const [offsetShuffle, setOffsetShuffle] = useState(0);
+
+  useEffect(() =>{
+    console.log('SEED: ' + offsetShuffle);
+  }, [offsetShuffle])
+
   const CLIENT_ID = '5516485dca62466fbbe834de9856c7ed';
   const REDIRECT_URI = 'http://localhost:3000/callback';
   const STATE_KEY = 'spotify_auth_state';
@@ -116,7 +122,9 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
       searchValue={searchValue} 
       onSearchChange={(event) => handleChange(setSearchValue)(event)} 
       onSearchSubmit={(event) => handleSubmit(searchValue, setSearchValue, setSearchResults)(event)}
-      accessToken={accessToken}/>
+      accessToken={accessToken}
+      offsetShuffle={offsetShuffle}
+      setOffsetShuffle={setOffsetShuffle} />
     <LoginButton onClick={loginToSpotify} />
   </>
   );
