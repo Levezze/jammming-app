@@ -31,9 +31,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
 
   const handleSpotifyCallback = () => {
     const hash = window.location.hash;
-    if (!hash) {
-      return;
-    };
+    if (!hash) return;
     const params = new URLSearchParams(hash.substring(1));
     const accessToken = params.get('access_token');
     const expiresIn = params.get('expires_in');
@@ -55,15 +53,9 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
       localStorage.removeItem('spotify_access_token');
       localStorage.removeItem('spotify_token_expiration');
       setAccessToken(null);
-    }
+      }
 
-      // setTimeout(() => {
-      //   localStorage.removeItem('spotify_access_token');
-      //   localStorage.removeItem('spotify_token_expiration');
-      //   setAccessToken(null);
-      // }, expirationTime)
-    
-    window.history.replaceState({}, document.title, window.location.pathname);
+      window.history.replaceState({}, document.title, window.location.pathname);
     } else {
       console.error("Authentication failed or state mismatch.")
     };
@@ -71,11 +63,9 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
 
   const getSpotifyAccessToken = () => {
     const token = localStorage.getItem('spotify_access_token');
-    if (!token) {
-      console.log('Please log in to Spotify.')
-      return null;
-    }
-    return token;
+    if (token) return token;
+    console.log('Please log in to Spotify.')
+    return null;  
   };
 
   useEffect(() => {
@@ -111,6 +101,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
       }
       const jsonResponse = await response.json();
       setSearchResults(jsonResponse);
+      console.log(jsonResponse);
     } catch (error) {
       console.log(error);
       return null;
