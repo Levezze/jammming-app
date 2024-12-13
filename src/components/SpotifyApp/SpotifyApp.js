@@ -11,7 +11,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
   }, [shuffleOn])
 
   const CLIENT_ID = '5516485dca62466fbbe834de9856c7ed';
-  const REDIRECT_URI = 'http://localhost:3000/callback';
+  const REDIRECT_URI = `${window.location.origin}/callback`;
   const STATE_KEY = 'spotify_auth_state';
   const SCOPE = 'user-read-private user-read-email playlist-modify-public playlist-modify-private';
 
