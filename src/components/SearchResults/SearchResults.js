@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Track from "../Track/Track";
 import './SearchResults.css'
 
 
 function SearchResults({ refDiv, searchResultsArray, addSong, playlistSongs }) {
+  useEffect(() => {
+    if (refDiv.current) {
+      refDiv.current.scrollTop = 0;
+    }
+  }, [searchResultsArray])
+
   return (
     <div ref={refDiv} className="SearchResults">
       <Track 
