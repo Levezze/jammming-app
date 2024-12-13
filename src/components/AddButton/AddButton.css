@@ -3,12 +3,12 @@
 }
 
 .AddButton {
-  color: #fff;
-  background-color: #7c25f8;
+  color: #1c1c1c;
+  background-color: #ffd36f;
   min-height: 30px;
   min-width: 30px;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Montserrat';
   align-self: center;
   margin: 10px;
   white-space: normal;
@@ -16,15 +16,17 @@
   transition-property: background-color;
   transition-duration: .3s;
   border-radius: 50%;
+  cursor: pointer;
+  
 }
 
 .AddButton:hover {
-  background-color: #b896e6;
+  background-color: #FFE7AD;
 }
 
 .AddButton:disabled,
 .AddButton[disabled]{
-  /* border: 1px solid #999999; */
-  background-color: #cccccc;
-  color: #888888;
+  background-color: #E6E6E6;
+  color: #CCCCCC;
+  cursor: default;
 }

@@ -8,7 +8,7 @@ function ResultsOrShuffle({ offsetShuffle, setOffsetShuffle }) {
       <div className="dropdown-results" >
           <label>
               Results: {/* Maybe unnecessary */}
-              <select>
+              <select className="option">
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>

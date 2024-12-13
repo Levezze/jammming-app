@@ -1,6 +1,6 @@
 .save-playlist-btn {
-  color: #fff;
-  background-color: #7c25f8;
+  color: #1c1c1c;
+  background-color: #ffd36f;
   font-size: .9rem;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
   font-weight: 500;
@@ -20,5 +20,5 @@
 }
 
 .save-playlist-btn:hover {
-  background-color: #b896e6;
+  background-color: #FFE7AD;
 }

@@ -5,12 +5,37 @@
 }
 
 .dropdown-results label {
-  color: #1c1c1c;
-  font-size: 1rem;;
+  font-size: 1rem;
+  color: #558CA4;
+  text-align: center;
+  font-family: "Lora", serif;
 }
 
 .dropdown-results select {
-  min-height: 3rem;
+  min-height: 2.9rem;
   min-width: 3rem;
   border: 0;
+  font-size: .95rem;
+  color: #1c1c1c;
+  text-align: center;
+  font-family: "Lora", serif;
+  cursor: pointer;
+}
+
+.dropdown-results select:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 400px) {
+  .dropdown-results label {
+    font-size: 0.9rem;
+  }
+
+  .dropdown-results select {
+    min-height: 3rem;
+    min-width: 2rem;
+    border: 0;
+    font-size: .9rem;
+  }
+  
 }

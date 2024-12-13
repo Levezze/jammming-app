@@ -65,7 +65,7 @@ export const sortShuffleSwitch = (offsetShuffle, setOffsetShuffle) => {
   if (!shufflePressed) {
     const shuffleBtn = document.getElementById("shuffle-btn");
     shufflePressed = true
-    shuffleBtn.style.backgroundColor = "#b896e6";
+    shuffleBtn.style.backgroundColor = "#ffd36f";
     let SEED = Math.floor(Math.random() * 100);
     return SEED; // Default seed is 0.
   } else {

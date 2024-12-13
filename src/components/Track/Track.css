@@ -14,7 +14,7 @@
   padding: 5px;
   background-color: white;
   color: #1c1c1c;
-  border-radius: 25px;
+  /* border-radius: 10px; */
   margin: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
@@ -34,7 +34,7 @@
 h4 {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  color: #7c25f8;
+  color: #558CA4;
   font-weight: 700;
   font-size: 1.1rem;
   text-align: left;

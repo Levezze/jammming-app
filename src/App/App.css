@@ -1,5 +1,5 @@
 body {
-  background-color: #fbf8ff;
+  background-color: #F2F6F8;
 }
 
 .App {
@@ -23,19 +23,21 @@ header h1 {
   font-size: clamp(3rem, 10vw, 6rem);
   text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
   font-family: "Montserrat Underline", sans-serif;
+  font-weight: 500;
 }
 
 header h1 span {
-  color: #b896e6;
+  color: #558CA4;
 }
 
 header h2 {
   margin: 0 0 20px;
-  color: #b896e6;
+  color: #ffd36f;
+  color: #558CA4;
   text-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px;
   font-family: "Montserrat", sans-serif;
   font-size: clamp(1.5rem, 5vw, 2.5rem);
-  font-weight: 600;
+  font-weight: 300;
 }
 
 /* @media only screen and (min-width: 1000px) {
