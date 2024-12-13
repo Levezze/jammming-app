@@ -3,7 +3,7 @@ import SavePlaylist from "../SavePlaylist/SavePlaylist";
 import Tracklist from "../Tracklist/Tracklist";
 import './Playlist.css'
 
-function Playlist({ playlistNameValue, playlistNameChange, playlist, setPlaylist, setPlaylistName, setUriList, accessToken }) {
+function Playlist({ playlistNameValue, playlistNameChange, playlist, setPlaylist, setPlaylistName, accessToken }) {
   return (
     <div className="Playlist">
       <SavePlaylist 
@@ -12,7 +12,6 @@ function Playlist({ playlistNameValue, playlistNameChange, playlist, setPlaylist
         playlist={playlist}
         setPlaylist={setPlaylist}
         setPlaylistName={setPlaylistName}
-        setUriList={setUriList}
         accessToken={accessToken} />
       <Tracklist
         playlist={playlist} 

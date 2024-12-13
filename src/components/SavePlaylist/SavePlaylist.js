@@ -2,11 +2,7 @@ import React from "react";
 import PlaylistName from "../PlaylistName/PlaylistName";
 import './SavePlaylist.css'
 
-function SavePlaylist({ playlist, setPlaylist, setUriList, accessToken, playlistName, setPlaylistName, handleNameChange }) {
-  const uris = (array) => {
-    setUriList(array.map(each => each.uri));
-  };
-
+function SavePlaylist({ playlist, setPlaylist, accessToken, playlistName, setPlaylistName, handleNameChange }) {
   const getId = async (accessToken) => {
     if (!accessToken) {
       console.log('Token expired, log in again.');

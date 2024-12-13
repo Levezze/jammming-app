@@ -10,7 +10,8 @@ function ShuffleButton({ shuffleOn, setShuffleOn }) {
       onClick={() => (handleShuffle(shuffleOn, setShuffleOn))} >
       <img 
         id="shuffle-icon" 
-        src='/shuffle-icon.png'/>
+        src='/shuffle-icon.png'
+        alt="shuffle"/>
     </button>
   );
 };

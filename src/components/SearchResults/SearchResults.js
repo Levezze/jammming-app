@@ -8,7 +8,7 @@ function SearchResults({ refDiv, searchResultsArray, addSong, playlistSongs }) {
     if (refDiv.current) {
       refDiv.current.scrollTop = 0;
     }
-  }, [searchResultsArray])
+  }, [refDiv, searchResultsArray])
 
   return (
     <div ref={refDiv} className="SearchResults">

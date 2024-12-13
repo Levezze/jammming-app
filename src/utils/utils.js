@@ -70,11 +70,3 @@ export const handleShuffle = (shuffleOn, setShuffleOn) => {
     setShuffleOn(true);
   }
 }
-
-export const shuffleSwitch = (shuffleOn, setOffsetShuffle) => {
-  if (shuffleOn) {
-    return (Math.ceil(Math.random() * 300));
-  } else {
-    return 0;
-  }
-};

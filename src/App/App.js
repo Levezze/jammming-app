@@ -14,7 +14,6 @@ function App() {
   const [searchResults, setSearchResults] = useState({});
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState('');
-  const [uriList, setUriList] = useState([]);
   const [accessToken, setAccessToken ] = useState(null);
   const [resultsNumber, setResultsNumber] = useState(10);
 
@@ -23,7 +22,6 @@ function App() {
   }, [resultsNumber])
 
   const targetRef = useRef(null);
-  const targetRefTop = useRef(null);
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -31,9 +29,9 @@ function App() {
     });
   };
 
+  const loginButtonStyle = document.getElementById('login-button');
+  const searchButtonStyle = document.getElementById('search-btn');
   useEffect(() => {
-    const loginButtonStyle = document.getElementById('login-button');
-    const searchButtonStyle = document.getElementById('search-btn');
     if (!accessToken) {
       // console.log('no token')
       loginButtonStyle.style.display = 'block';
@@ -43,7 +41,7 @@ function App() {
       loginButtonStyle.style.display = 'none';
       searchButtonStyle.style.display = 'block';
     }
-  }, [accessToken])
+  }, [accessToken, setAccessToken, loginButtonStyle, searchButtonStyle])
 
   return (
     <div className="App">
@@ -76,7 +74,6 @@ function App() {
           playlist={playlist}
           setPlaylist={setPlaylist}
           setPlaylistName={setPlaylistName}
-          setUriList={setUriList}
           accessToken={accessToken} />
       </main>
     </div>

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SearchSongs from "../SearchSongs/SearchSongs";
 import LoginButton from "../LoginButton/LoginButton";
-import { handleChange, shuffleSwitch } from "../../utils/utils";
+import { handleChange } from "../../utils/utils";
 
 function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults, resultsNumber, setResultsNumber }) {
   const [shuffleOn, setShuffleOn] = useState(false);
@@ -35,7 +35,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
     window.location = url;
   };
 
-  const handleSpotifyCallback = () => {
+  const handleSpotifyCallback = useCallback(() => {
     const hash = window.location.hash;
     if (!hash) return;
     const params = new URLSearchParams(hash.substring(1));
@@ -65,7 +65,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
     } else {
       console.error("Authentication failed or state mismatch.")
     };
-  };
+  },[setAccessToken]);
 
   const getSpotifyAccessToken = () => {
     const token = localStorage.getItem('spotify_access_token');
@@ -80,7 +80,7 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
       const savedToken = getSpotifyAccessToken();
       if (savedToken) setAccessToken(savedToken);
     }
-  }, [accessToken]);
+  }, [handleSpotifyCallback, accessToken, setAccessToken]);
 
   const handleSubmit = (searchValue, shuffleOn, setSearchResults) => async (event) => {
     event.preventDefault();

@@ -18,7 +18,7 @@ function AddButton({ each, set, songs }) {
       } else {
       setActive(false);
     }
-  },[songs])
+  },[each, songs])
   
   return (
     <div className="buttonContainer">
