@@ -11,21 +11,33 @@
   margin-top: 0;
 }
 
+.playlist-song-list::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+.playlist-song-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.playlist-song-list::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
 @media only screen and (max-width: 450px) {
   .playlist-song-list ul {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
-.playlist-song-list::-webkit-scrollbar {
-  width: 0.2rem;
-}
- 
-.playlist-song-list::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
- 
-.playlist-song-list::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+@media only screen and (min-width: 1000px) {
+	.playlist-song-list {
+    /* min-height: none; */
+    max-height: calc(100vh - 126.41px);
+  }
+  
+
+  .playlist-song-list ul {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
 }

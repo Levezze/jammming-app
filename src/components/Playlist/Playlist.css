@@ -2,3 +2,9 @@
   max-height: 50vh;
   /* overflow: hidde//n; */
 }
+
+@media only screen and (min-width: 1000px) {
+	.Playlist {
+    max-height: 100vh;
+  }
+}

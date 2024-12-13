@@ -1,5 +1,5 @@
 .SearchResults {
-  max-height: 50vh;
+  max-height: calc(75vh);
   overflow-y: scroll;
 }
 
@@ -9,21 +9,31 @@
   padding: 0 20px;
 }
 
+.SearchResults::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+.SearchResults::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.SearchResults::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
 @media only screen and (max-width: 450px) {
   .SearchResults ul {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
-.SearchResults::-webkit-scrollbar {
-  width: 0.2rem;
-}
- 
-.SearchResults::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
- 
-.SearchResults::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+@media only screen and (min-width: 1000px) {
+	.SearchResults {
+    max-height: none;
+  }
+
+  .SearchResults ul {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
 }
