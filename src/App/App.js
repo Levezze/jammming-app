@@ -16,8 +16,21 @@ function App() {
   const [playlistName, setPlaylistName] = useState('');
   const [uriList, setUriList] = useState([]);
   const [accessToken, setAccessToken ] = useState(null);
+  const [resultsNumber, setResultsNumber] = useState(10);
+
+  useEffect(() => {
+    console.log("result number:", resultsNumber)
+  }, [resultsNumber])
 
   const targetRef = useRef(null);
+  const targetRefTop = useRef(null);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   useEffect(() => {
     const loginButtonStyle = document.getElementById('login-button');
     const searchButtonStyle = document.getElementById('search-btn');
@@ -44,9 +57,14 @@ function App() {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           setSearchResults={setSearchResults}
+          resultsNumber={resultsNumber}
+          setResultsNumber={setResultsNumber}
            />
       </header>
       <main className="Main">
+        <div className='buttonToSearch'>
+          <button onClick={scrollToTop}>Search <span>&uarr;</span></button>
+        </div>
         <SearchResults 
           refDiv={targetRef}
           searchResultsArray={searchResults}
@@ -57,6 +75,7 @@ function App() {
           playlistNameChange={(event) => handleChange(setPlaylistName)(event)}
           playlist={playlist}
           setPlaylist={setPlaylist}
+          setPlaylistName={setPlaylistName}
           setUriList={setUriList}
           accessToken={accessToken} />
       </main>

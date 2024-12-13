@@ -1,13 +1,13 @@
 import React from "react";
-import { sortShuffleSwitch } from "../../utils/utils";
+import { handleShuffle } from "../../utils/utils";
 import './ShuffleButton.css'
 
-function ShuffleButton({ offsetShuffle, setOffsetShuffle }) {
+function ShuffleButton({ shuffleOn, setShuffleOn }) {
   return (
     <button 
       id="shuffle-btn"
       type="button" 
-      onClick={() => setOffsetShuffle(sortShuffleSwitch(offsetShuffle, setOffsetShuffle))} >
+      onClick={() => (handleShuffle(shuffleOn, setShuffleOn))} >
       <img 
         id="shuffle-icon" 
         src='/shuffle-icon.png'/>

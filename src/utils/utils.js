@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export const handleChange = (setVal) => (event) => {
   const { value } = event.target;
   setVal(value);
@@ -60,21 +58,23 @@ export const removeSong = (array, id, set) => {
   set(array.filter(song => song.id !== id));
 };
 
-let shufflePressed = false;
-export const sortShuffleSwitch = (offsetShuffle, setOffsetShuffle) => {
-  if (!shufflePressed) {
+
+export const handleShuffle = (shuffleOn, setShuffleOn) => {
+  if (shuffleOn) {
     const shuffleBtn = document.getElementById("shuffle-btn");
-    shufflePressed = true
-    shuffleBtn.style.backgroundColor = "#ffd36f";
-    let SEED = Math.floor(Math.random() * 100);
-    return SEED; // Default seed is 0.
+    shuffleBtn.style.backgroundColor = "transparent";
+    setShuffleOn(false);
   } else {
     const shuffleBtn = document.getElementById("shuffle-btn");
-    shufflePressed = false
-    shuffleBtn.style.backgroundColor = "transparent";
+    shuffleBtn.style.backgroundColor = "#ffd36f";
+    setShuffleOn(true);
+  }
+}
+
+export const shuffleSwitch = (shuffleOn, setOffsetShuffle) => {
+  if (shuffleOn) {
+    return (Math.ceil(Math.random() * 300));
+  } else {
     return 0;
   }
-
-
-
 };

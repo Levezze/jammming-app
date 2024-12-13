@@ -2,7 +2,7 @@ import React from "react";
 import PlaylistName from "../PlaylistName/PlaylistName";
 import './SavePlaylist.css'
 
-function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleNameChange }) {
+function SavePlaylist({ playlist, setPlaylist, setUriList, accessToken, playlistName, setPlaylistName, handleNameChange }) {
   const uris = (array) => {
     setUriList(array.map(each => each.uri));
   };
@@ -73,6 +73,8 @@ function SavePlaylist({ playlist, setUriList, accessToken, playlistName, handleN
           const songsJsonResponse = await songsResponse.json();
           console.log("Songs added to playlist: ", songsJsonResponse);
           alert(`Songs added to playlist: ${playlistName}`);
+          setPlaylist([]);
+          setPlaylistName('');
           } catch (error) {
             console.log("Error adding songs: ", error);
           }

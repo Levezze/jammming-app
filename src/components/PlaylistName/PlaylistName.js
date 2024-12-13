@@ -5,6 +5,7 @@ function PlaylistName({ playlistName, handleNameChange }) {
   return (
     <>
       <input 
+        value={playlistName}
         className="PlaylistName"
         id="playlistName"
         name="playlistName"

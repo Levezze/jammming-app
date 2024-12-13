@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SearchSongs from "../SearchSongs/SearchSongs";
 import LoginButton from "../LoginButton/LoginButton";
-import { handleChange } from "../../utils/utils";
+import { handleChange, shuffleSwitch } from "../../utils/utils";
 
-function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults }) {
-  const [offsetShuffle, setOffsetShuffle] = useState(0);
-
+function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue, setSearchValue, setSearchResults, resultsNumber, setResultsNumber }) {
+  const [shuffleOn, setShuffleOn] = useState(false);
+  
   useEffect(() =>{
-    console.log('SEED: ' + offsetShuffle);
-  }, [offsetShuffle])
+    console.log('Shuffle: ' + shuffleOn);
+  }, [shuffleOn])
 
   const CLIENT_ID = '5516485dca62466fbbe834de9856c7ed';
   const REDIRECT_URI = 'http://localhost:3000/callback';
@@ -82,20 +82,22 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
     }
   }, [accessToken]);
 
-  const handleSubmit = (searchValue, setSearchValue, setSearchResults) => async (event) => {
+  const handleSubmit = (searchValue, shuffleOn, setSearchResults) => async (event) => {
     event.preventDefault();
     const token = getSpotifyAccessToken();
     if (!token) {
       console.log('Token expired, log in again.');
       return;
     }
+    const SEED = (Math.ceil(Math.random() * 300));
     const endpoint = 'https://api.spotify.com/v1/search';
     const q = encodeURIComponent(searchValue);
-    console.log(searchValue);
     const types = ['track'];
     const strTypes = encodeURIComponent(types.join(','));
-    const limit = 20;
-    const url = `${endpoint}?q=${q}&type=${strTypes}&limit=${limit}`;
+    const limit = resultsNumber;
+    const offset = shuffleOn ? SEED : 0;
+    console.log('Seed: ', offset);
+    const url = `${endpoint}?q=${q}&type=${strTypes}&limit=${limit}&offset=${offset}`;
     try {
       const response = await fetch(url, {
         headers: {
@@ -107,12 +109,12 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
       }
       const jsonResponse = await response.json();
       setSearchResults(jsonResponse);
-      console.log(jsonResponse);
+      // console.log(jsonResponse);
     } catch (error) {
       console.log(error);
       return null;
     }
-    setSearchValue('');
+    // setSearchValue('');
     scrollToResults();
   };
 
@@ -121,10 +123,12 @@ function SpotifyApp({ scrollToResults, accessToken, setAccessToken, searchValue,
     <SearchSongs 
       searchValue={searchValue} 
       onSearchChange={(event) => handleChange(setSearchValue)(event)} 
-      onSearchSubmit={(event) => handleSubmit(searchValue, setSearchValue, setSearchResults)(event)}
+      onSearchSubmit={(event) => handleSubmit(searchValue, shuffleOn, setSearchResults)(event)}
       accessToken={accessToken}
-      offsetShuffle={offsetShuffle}
-      setOffsetShuffle={setOffsetShuffle} />
+      shuffleOn={shuffleOn}
+      setShuffleOn={setShuffleOn}
+      resultsNumber={resultsNumber}
+      setResultsNumber={setResultsNumber} />
     <LoginButton onClick={loginToSpotify} />
   </>
   );
