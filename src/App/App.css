@@ -40,16 +40,14 @@ header h2 {
 }
 
 .buttonToSearch {
-  opacity: .8;
   position: absolute;
-  /* height: 20px; */
-  /* top: calc(100vh + 10px); */
   width: 100%;
   z-index: 10;
 }
 
 .buttonToSearch button {
-  /* position: -webkit-sticky; */
+  opacity: .7;
+  transition: .3s;
   color: #1c1c1c;
   background-color: #ffd36f;
   margin: 5px auto 0;
@@ -75,7 +73,9 @@ header h2 {
 }
 
 .buttonToSearch button:hover {
-  background-color: #FFE7AD;
+  opacity: 1;
+  transition: .3s;
+  /* background-color: #FFE7AD; */
 }
 
 /* @media only screen and (min-width: 1000px) {
