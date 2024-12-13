@@ -33,13 +33,19 @@ function App() {
   const searchButtonStyle = document.getElementById('search-btn');
   useEffect(() => {
     if (!accessToken) {
+      setTimeout(() =>{
       // console.log('no token')
-      loginButtonStyle.style.display = 'block';
-      searchButtonStyle.style.display = 'none';
+        if (loginButtonStyle && searchButtonStyle){
+        loginButtonStyle.style.display = 'block';
+        searchButtonStyle.style.display = 'none';
+        }}, 1000)
     } else {
+      setTimeout(() =>{
       // console.log('yes token')
-      loginButtonStyle.style.display = 'none';
-      searchButtonStyle.style.display = 'block';
+      if (loginButtonStyle && searchButtonStyle){
+        loginButtonStyle.style.display = 'none';
+        searchButtonStyle.style.display = 'block';
+      }}, 1000)
     }
   }, [accessToken, setAccessToken, loginButtonStyle, searchButtonStyle])
 
