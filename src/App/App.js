@@ -17,6 +17,8 @@ function App() {
   const [accessToken, setAccessToken ] = useState(null);
   const [resultsNumber, setResultsNumber] = useState(10);
 
+  document.title = "Jammming, Spotify Playlist Maker";
+
   useEffect(() => {
     console.log("result number:", resultsNumber)
   }, [resultsNumber])
